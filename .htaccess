@@ -1,0 +1,39 @@
+#Khởi động
+RewriteEngine On
+
+#Thư mục gốc của web
+RewriteBase /
+
+#Thiết lập các luật
+RewriteRule ^dang-nhap.html$ loginql.php
+RewriteRule ^dang-xuat.html$ logoutql.php
+RewriteRule ^ban.html$ ban.php
+RewriteRule ^ban-on-([0-9]*).html$ ban-on.php?stt=$1
+
+RewriteRule ^blog.html$ blog.php
+RewriteRule ^chuyen-muc/(.*)-([0-9]*).html?$ danhmuc.php?id_cm=$2
+RewriteRule ^chuyen-muc/(.*)-([0-9]*).html/page([0-9]*)$ danhmuc.php?id_cm=$2&page=$3
+RewriteRule ^chi-tiet/(.*)-([0-9]*).html?$ chitiet.php?id_bv=$2
+
+RewriteRule ^lien-he.html$ contact.php
+#Admin
+
+RewriteRule ^admin/bai-viet.html$ admin/baiviet.php
+RewriteRule ^admin/them-bai-viet.html$ admin/baiviet_add.php
+RewriteRule ^admin/sua-bai-viet-([0-9]*).html$ admin/baiviet_edit.php?id=$1
+RewriteRule ^admin/xoa-bai-viet-([0-9]*).html$ admin/baiviet_del.php?id=$1
+
+RewriteRule ^admin/san-pham.html$ admin/sanpham.php
+RewriteRule ^admin/them-san-pham.html$ admin/sanpham_add.php
+RewriteRule ^admin/sua-san-pham-([0-9]*).html$ admin/sanpham_edit.php?id=$1
+RewriteRule ^admin/xoa-san-pham-([0-9]*).html$ admin/sanpham_del.php?id=$1
+
+RewriteRule ^admin/index.html$ admin/index.php
+RewriteRule ^admin/login.html$ admin/login.php
+RewriteRule ^admin/quan-tri.html$ admin/quantri.php
+RewriteRule ^admin/slide.html$ admin/slide.php
+RewriteRule ^admin/lien-he.html$ admin/lienhe.php
+RewriteRule ^admin/ban.html$ admin/ban.php
+
+
+ErrorDocument 404 /404.php
